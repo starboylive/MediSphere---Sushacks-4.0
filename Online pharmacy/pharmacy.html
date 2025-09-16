@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Medisphere — Online Pharmacy</title>
+  <link rel="icon" type="image/icon" href="logo.png">
+  <link rel="stylesheet" href="pharmacy.css">
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">M</div>
+        <div>
+          <h1>Medisphere — Online Pharmacy</h1>
+          <div class="muted">Browse medicines, filter, and order online</div>
+        </div>
+      </div>
+      <div class="controls">
+        <input id="search" class="search" placeholder="Search medicine..." oninput="render()" />
+        <select id="sort" onchange="render()">
+          <option value="relevance">Sort: Relevance</option>
+          <option value="priceAsc">Price: Low → High</option>
+          <option value="priceDesc">Price: High → Low</option>
+        </select>
+      </div>
+    </header>
+
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="filter-group">
+          <h4>Categories</h4>
+          <label><input type="checkbox" value="Pain Relief" onchange="render()"> Pain Relief</label>
+          <label><input type="checkbox" value="Antibiotics" onchange="render()"> Antibiotics</label>
+          <label><input type="checkbox" value="Supplements" onchange="render()"> Supplements</label>
+          <label><input type="checkbox" value="Diabetes" onchange="render()"> Diabetes</label>
+          <label><input type="checkbox" value="Cardiac" onchange="render()"> Cardiac Care</label>
+        </div>
+        <div class="filter-group">
+          <h4>Availability</h4>
+          <label><input type="checkbox" id="inStock" onchange="render()"> In Stock Only</label>
+        </div>
+      </aside>
+
+      <main>
+        <div class="results">
+          <div class="summary">
+            <div id="count" class="muted">0 medicines found</div>
+            <div class="muted">Sample demo listing</div>
+          </div>
+          <div id="listWrap" class="grid"></div>
+          <div id="empty" class="empty" style="display:none">No medicines found.</div>
+        </div>
+      </main>
+    </div>
+  </div>
+  <script src="pharmacy.js"></script>
+</body>
+</html>
