@@ -1,0 +1,55 @@
+.active-filter {
+            background-color: #3b82f6;
+            color: white;
+        }
+        .doctor-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .doctor-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        .search-container {
+            position: relative;
+        }
+        .search-results {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-height: 300px;
+            overflow-y: auto;
+            z-index: 10;
+            display: none;
+        }
+
+        /* ...existing code... */
+
+/* --- Mobile Optimization --- */
+@media (max-width: 600px) {
+    .doctor-card {
+        font-size: 15px;
+        padding: 10px 6px;
+        border-radius: 7px;
+        min-width: unset;
+    }
+    .search-container {
+        width: 100%;
+    }
+    .search-results {
+        font-size: 14px;
+        max-height: 180px;
+        border-radius: 0 0 6px 6px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.09);
+    }
+    .active-filter {
+        font-size: 14px;
+        padding: 6px 10px;
+        border-radius: 6px;
+    }
+}
+
+/* ...existing code... */

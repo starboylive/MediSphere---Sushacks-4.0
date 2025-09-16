@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedConnect - Specialist Doctor Referrals</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="doctorreferrals.css">
+    <link rel="icon" type="image/png" href="logo.png">
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center mb-4 md:mb-0">
+                    <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center mr-3">
+                        <i class="fas fa-heartbeat text-white text-xl"></i>
+                    </div>
+                    <h1 class="text-2xl font-bold text-blue-800">Medisphere Doctor Referrals</h1>
+                </div>
+                
+                <div class="search-container w-full md:w-1/3 mb-4 md:mb-0">
+                    <div class="relative">
+                        <input type="text" id="search-input" placeholder="Search doctors, specialties..." class="w-full px-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <i class="fas fa-search absolute right-3 top-3 text-gray-400"></i>
+                    </div>
+                    <div id="search-results" class="search-results"></div>
+                </div>
+                
+                <nav class="flex space-x-6">
+                    <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">Home</a>
+                    <a href="#" class="text-gray-600 hover:text-blue-800 font-medium">About</a>
+                    <a href="#" class="text-gray-600 hover:text-blue-800 font-medium">Contact</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+        <section class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Find the Right Specialist for Your Needs</h2>
+            <p class="text-gray-600 max-w-2xl mx-auto">Our network of experienced medical professionals is ready to provide you with exceptional care. Filter by specialty to find the perfect doctor for your health needs.</p>
+        </section>
+
+        <section class="mb-12">
+            <div class="flex flex-wrap justify-center gap-3 mb-8">
+                <button class="filter-btn active-filter px-4 py-2 rounded-full text-sm font-medium transition-colors" data-filter="all">
+                    All Specialists
+                </button>
+                <button class="filter-btn px-4 py-2 rounded-full bg-gray-200 text-gray-700 text-sm font-medium hover:bg-blue-100 hover:text-blue-700 transition-colors" data-filter="cardiology">
+                    Cardiology
+                </button>
+                <button class="filter-btn px-4 py-2 rounded-full bg-gray-200 text-gray-700 text-sm font-medium hover:bg-blue-100 hover:text-blue-700 transition-colors" data-filter="pulmonology">
+                    Pulmonology
+                </button>
+                <button class="filter-btn px-4 py-2 rounded-full bg-gray-200 text-gray-700 text-sm font-medium hover:bg-blue-100 hover:text-blue-700 transition-colors" data-filter="nephrology">
+                    Nephrology
+                </button>
+                <button class="filter-btn px-4 py-2 rounded-full bg-gray-200 text-gray-700 text-sm font-medium hover:bg-blue-100 hover:text-blue-700 transition-colors" data-filter="hepatology">
+                    Hepatology
+                </button>
+                <button class="filter-btn px-4 py-2 rounded-full bg-gray-200 text-gray-700 text-sm font-medium hover:bg-blue-100 hover:text-blue-700 transition-colors" data-filter="neurology">
+                    Neurology
+                </button>
+                <button class="filter-btn px-4 py-2 rounded-full bg-gray-200 text-gray-700 text-sm font-medium hover:bg-blue-100 hover:text-blue-700 transition-colors" data-filter="orthopedics">
+                    Orthopedics
+                </button>
+            </div>
+
+            <div id="doctors-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Doctor cards will be inserted here by JavaScript -->
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Medisphere Doctors Referrals</h3>
+                    <p class="text-gray-300">Connecting patients with the right medical specialists for over 10 years.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-white">Find a Doctor</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Specialties</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Patient Resources</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Contact Us</h3>
+                    <!-- <p class="text-gray-300">123 Medical Plaza Drive</p> -->
+                    <p class="text-gray-300">Health City</p>
+                    <p class="text-gray-300">medisphere108@gmial.com</p>
+                    <p class="text-gray-300">7780590722</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>© 2025 Midshpere doctor Referrals. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="doctorreferrals.js"></script>
+</body>
+</html>
