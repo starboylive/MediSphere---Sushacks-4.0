@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Organ Donor Pre-Screening — Medisphere</title>
+  <link rel="stylesheet" href="donarsurvey.css">
+  <link rel="icon" type="image/png" href="logo.png">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo"><b>M</b></div>
+      <div>
+        <h1>Organ Donor Pre‑Screening Survey</h1>
+        <p class="lead">Please fill the form accurately. Medical staff will verify details before final approval.</p>
+      </div>
+    </header>
+
+    <form class="card" id="donorForm" onsubmit="event.preventDefault(); handleSubmit();">
+
+      <!-- 1. Personal Details -->
+      <fieldset>
+        <legend>1. Personal Details</legend>
+        <div class="grid cols-2">
+          <div>
+            <label for="fullName">Full Name</label>
+            <input id="fullName" name="fullName" type="text" required />
+          </div>
+          <div>
+            <label for="dob">Age / Date of Birth</label>
+            <input id="dob" name="dob" type="date" required />
+          </div>
+          <div>
+            <label for="gender">Gender</label>
+            <select id="gender" name="gender">
+              <option value="">Prefer not to say</option>
+              <option>Male</option>
+              <option>Female</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div>
+            <label for="contact">Contact (phone / email)</label>
+            <input id="contact" name="contact" type="text" placeholder="Phone or email" required />
+          </div>
+          <div style="grid-column:1 / -1">
+            <label for="address">Address / City</label>
+            <input id="address" name="address" type="text" />
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- 2. Basic Health Information -->
+      <fieldset>
+        <legend>2. Basic Health Information</legend>
+        <div class="grid cols-3">
+          <div>
+            <label for="height">Height (cm)</label>
+            <input id="height" name="height" type="number" min="50" max="250" oninput="updateBMI()" />
+          </div>
+          <div>
+            <label for="weight">Weight (kg)</label>
+            <input id="weight" name="weight" type="number" min="20" max="300" step="0.1" oninput="updateBMI()" />
+          </div>
+          <div>
+            <label>BMI</label>
+            <input id="bmi" type="text" readonly placeholder="—" />
+          </div>
+        </div>
+
+        <div style="margin-top:10px" class="grid cols-2">
+          <div>
+            <label for="bloodGroup">Blood Group (if known)</label>
+            <select id="bloodGroup" name="bloodGroup">
+              <option value="">Unknown</option>
+              <option>A+</option>
+              <option>A-</option>
+              <option>B+</option>
+              <option>B-</option>
+              <option>AB+</option>
+              <option>AB-</option>
+              <option>O+</option>
+              <option>O-</option>
+            </select>
+          </div>
+          <div>
+            <label for="allergies">Any known allergies? (Yes/No, specify)</label>
+            <input id="allergies" name="allergies" type="text" placeholder="E.g. Penicillin, Nuts or 'No'" />
+          </div>
+        </div>
+
+        <div style="margin-top:12px">
+          <label for="meds">Current Medications (list)</label>
+          <textarea id="meds" name="meds" placeholder="List medicines, doses, or 'None'"></textarea>
+        </div>
+
+        <div style="margin-top:12px" class="grid cols-2">
+          <div>
+            <label for="surgeries">Past Surgeries (Yes/No, specify)</label>
+            <input id="surgeries" name="surgeries" type="text" placeholder="E.g. Appendix removal - 2017 or 'No'" />
+          </div>
+          <div>
+            <label for="chronic">Any chronic illnesses (Yes/No, specify)</label>
+            <input id="chronic" name="chronic" type="text" placeholder="E.g. Asthma - since 2015 or 'No'" />
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- 3. Medical History -->
+      <fieldset>
+        <legend>3. Medical History</legend>
+        <p class="small">Have you ever been diagnosed with:</p>
+        <div class="checkbox-grid" style="margin-top:8px">
+          <label><input type="checkbox" name="history" value="Diabetes" /> Diabetes</label>
+          <label><input type="checkbox" name="history" value="Hypertension" /> Hypertension / High BP</label>
+          <label><input type="checkbox" name="history" value="HeartDisease" /> Heart disease</label>
+          <label><input type="checkbox" name="history" value="KidneyLiver" /> Kidney or Liver disease</label>
+          <label><input type="checkbox" name="history" value="Cancer" /> Cancer (if yes, type & year below)</label>
+          <label><input type="checkbox" name="history" value="TB" /> Tuberculosis / Major infections</label>
+          <label><input type="checkbox" name="history" value="Neuro" /> Neurological diseases (seizures, stroke)</label>
+        </div>
+
+        <div style="margin-top:10px">
+          <label for="cancerDetails">If cancer - type & year (or leave blank)</label>
+          <input id="cancerDetails" name="cancerDetails" type="text" />
+        </div>
+      </fieldset>
+
+      <!-- 4. Infectious Disease Risk -->
+      <fieldset>
+        <legend>4. Infectious Disease Risk</legend>
+        <p class="small">Have you ever tested positive for:</p>
+        <div class="checkbox-grid" style="margin-top:8px">
+          <label><input type="checkbox" name="infectious" value="HIV" /> HIV / AIDS</label>
+          <label><input type="checkbox" name="infectious" value="Hepatitis" /> Hepatitis B or C</label>
+          <label><input type="checkbox" name="infectious" value="Syphilis" /> Syphilis</label>
+          <label><input type="checkbox" name="infectious" value="COVID" /> COVID-19 (recent)</label>
+        </div>
+
+        <div style="margin-top:10px" class="grid cols-2">
+          <div>
+            <label for="feverHistory">History of frequent fevers, jaundice, or unexplained weight loss?</label>
+            <input id="feverHistory" name="feverHistory" type="text" placeholder="Yes / No — details" />
+          </div>
+          <div>
+            <label for="recentTests">Date of most recent major infection test (if any)</label>
+            <input id="recentTests" name="recentTests" type="date" />
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- 5. Lifestyle Factors -->
+      <fieldset>
+        <legend>5. Lifestyle Factors</legend>
+        <div class="grid cols-2">
+          <div>
+            <label>Do you smoke? (Yes/No, how often)</label>
+            <input id="smoke" name="smoke" type="text" placeholder="E.g. No / Occasionally / 5 cigarettes/day" />
+          </div>
+          <div>
+            <label>Do you consume alcohol? (Yes/No, frequency)</label>
+            <input id="alcohol" name="alcohol" type="text" placeholder="E.g. No / Weekly / Social" />
+          </div>
+        </div>
+
+        <div style="margin-top:10px" class="grid cols-2">
+          <div>
+            <label>Do you use recreational drugs? (Yes/No, details)</label>
+            <input id="drugs" name="drugs" type="text" placeholder="Specify or 'No'" />
+          </div>
+          <div>
+            <label>Occupational exposure to chemicals, radiation, infections? (Yes/No)</label>
+            <input id="exposure" name="exposure" type="text" placeholder="Details or 'No'" />
+          </div>
+        </div>
+
+        <div style="margin-top:10px">
+          <label for="exercise">Exercise habits</label>
+          <select id="exercise" name="exercise">
+            <option>Prefer not to say</option>
+            <option>Sedentary</option>
+            <option>Moderate</option>
+            <option>Active</option>
+          </select>
+        </div>
+      </fieldset>
+
+      <!-- 6. Family Medical History -->
+      <fieldset>
+        <legend>6. Family Medical History</legend>
+        <p class="small">Any family history of:</p>
+        <div class="checkbox-grid" style="margin-top:8px">
+          <label><input type="checkbox" name="family" value="Genetic" /> Genetic disorders</label>
+          <label><input type="checkbox" name="family" value="Heart" /> Heart disease</label>
+          <label><input type="checkbox" name="family" value="Diabetes" /> Diabetes</label>
+          <label><input type="checkbox" name="family" value="KidneyLiver" /> Kidney/Liver problems</label>
+        </div>
+      </fieldset>
+
+      <!-- 7. Donation-Specific -->
+      <fieldset>
+        <legend>7. Donation-Specific</legend>
+        <div class="grid cols-2">
+          <div>
+            <label>Type of donation</label>
+            <select id="donationType" name="donationType">
+              <option>Living</option>
+              <option>After Death (pledge)</option>
+            </select>
+          </div>
+          <div>
+            <label>Preferred organ(s) for donation</label>
+            <div class="checkbox-grid" style="margin-top:8px">
+              <label><input type="checkbox" name="organs" value="Kidney" /> Kidney</label>
+              <label><input type="checkbox" name="organs" value="Liver" /> Liver</label>
+              <label><input type="checkbox" name="organs" value="Heart" /> Heart</label>
+              <label><input type="checkbox" name="organs" value="Lungs" /> Lungs</label>
+              <label><input type="checkbox" name="organs" value="Cornea" /> Cornea</label>
+              <label><input type="checkbox" name="organs" value="Blood" /> Blood</label>
+              <label><input type="checkbox" name="organs" value="Tissue" /> Tissue / Other</label>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:12px;display:flex;gap:12px;align-items:center">
+          <label style="margin:0;display:flex;gap:8px;align-items:center"><input type="checkbox" id="consent" required /> I confirm my consent to donate as selected above.</label>
+        </div>
+      </fieldset>
+
+      <!-- 8. Legal & Ethical -->
+      <fieldset>
+        <legend>8. Legal & Ethical</legend>
+        <div class="grid cols-2">
+          <div>
+            <label for="idProof">ID Proof (Aadhaar / Passport / Govt ID)</label>
+            <input id="idProof" name="idProof" type="text" placeholder="ID type & number" />
+          </div>
+          <div>
+            <label for="emergencyContact">Emergency Contact Person (name & phone)</label>
+            <input id="emergencyContact" name="emergencyContact" type="text" />
+          </div>
+        </div>
+
+        <div style="margin-top:12px">
+          <label for="declaration">Declaration</label>
+          <textarea id="declaration" readonly>
+I declare that I am donating of my own free will, without coercion. I confirm that the information provided above is true to the best of my knowledge.
+          </textarea>
+        </div>
+      </fieldset>
+
+      <div class="actions">
+        <button type="button" class="ghost" onclick="resetForm()">Reset</button>
+        <button type="submit">Submit Survey</button>
+      </div>
+
+      <p class="note" style="margin-top:12px">Note: This is a pre‑screening form. Final medical clearance requires physical examination and lab testing by authorised transplant professionals.</p>
+    </form>
+  </div>
+  <script src="donarsurvey.js"></script>
+</body>
+</html>
