@@ -1,0 +1,277 @@
+/* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: poppins;
+        }
+        
+        body {
+            /* font-family: 'Arial', sans-serif; */
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background-color: #1a73e8;
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        
+        .emergency-banner {
+            background-color: #e53935;
+            color: white;
+            text-align: center;
+            padding: 0.5rem;
+            font-weight: bold;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(26, 115, 232, 0.8), rgba(26, 115, 232, 0.9)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%231a73e8"/><path d="M0 50 L100 50 M50 0 L50 100" stroke="%23ffffff" stroke-width="2" stroke-opacity="0.2"/></svg>');
+            background-size: cover;
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .emergency-button {
+            display: inline-block;
+            background-color: #e53935;
+            color: white;
+            text-decoration: none;
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 1rem;
+            transition: background-color 0.3s;
+        }
+        
+        .emergency-button:hover {
+            background-color: #c62828;
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 3rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #1a73e8;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .service-icon {
+            font-size: 2.5rem;
+            color: #1a73e8;
+            margin-bottom: 1rem;
+        }
+        
+        /* Emergency Contacts */
+        .emergency-contacts {
+            background-color: #e8f0fe;
+            padding: 3rem 0;
+        }
+        
+        .contact-list {
+            list-style: none;
+        }
+        
+        .contact-item {
+            background: white;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            cursor: pointer;
+        }
+        
+        .contact-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .contact-details {
+            display: none;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+        }
+        
+        .contact-item.active .contact-details {
+            display: block;
+        }
+        
+        /* Locations */
+        .locations {
+            padding: 3rem 0;
+        }
+        
+        .location-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #1a73e8;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ...existing code... */
+
+/* --- Mobile Optimization --- */
+@media (max-width: 600px) {
+    .container {
+        max-width: 100vw;
+        padding: 0 6px;
+    }
+    header {
+        padding: 0.7rem 0;
+    }
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 8px;
+    }
+    .logo {
+        font-size: 1.2rem;
+    }
+    .emergency-banner {
+        font-size: 1rem;
+        padding: 0.4rem;
+    }
+    .hero {
+        padding: 1.5rem 0.5rem;
+    }
+    .hero h1 {
+        font-size: 1.3rem;
+        margin-bottom: 0.7rem;
+    }
+    .emergency-button {
+        padding: 0.7rem 1rem;
+        font-size: 1rem;
+        margin-top: 0.7rem;
+        border-radius: 4px;
+    }
+    .services {
+        padding: 1.5rem 0 1rem 0;
+    }
+    .section-title {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+    }
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    .service-card {
+        padding: 1rem 0.7rem;
+        border-radius: 6px;
+        font-size: 15px;
+    }
+    .service-icon {
+        font-size: 2rem;
+        margin-bottom: 0.7rem;
+    }
+    .emergency-contacts {
+        padding: 1.5rem 0 1rem 0;
+    }
+    .contact-item {
+        padding: 0.7rem;
+        border-radius: 4px;
+        font-size: 15px;
+    }
+    .contact-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+    }
+    .contact-details {
+        font-size: 14px;
+        margin-top: 0.5rem;
+        padding-top: 0.5rem;
+    }
+    .locations {
+        padding: 1.5rem 0 1rem 0;
+    }
+    .location-card {
+        padding: 1rem 0.7rem;
+        border-radius: 6px;
+        margin-bottom: 1rem;
+        font-size: 15px;
+    }
+    footer {
+        padding: 1rem 0;
+        font-size: 14px;
+    }
+}
+
+/* ...existing code... */
