@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Medisphere - Hackathon Project</title>
+	<link rel="icon" type="image/icon" href="logo.png">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="homepage.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+	<header>
+		<nav>
+			<div class="logo">Medisphere</div>
+			<ul class="nav-links">
+				<li><a href="#home">Home</a></li>
+				<li><a href="#about">About</a></li>
+				<li class="dropdown">
+					<a href="#services" class="dropbtn">Services</a>
+					<div class="dropdown-content">
+						<a href="Organ donation/organdonation.html">Organ Donation</a>
+						<a href="Blood bank/Donorlisting.html">Blood Bank</a>
+						<a href="Online pharmacy/pharmacy.html">Online Pharmacy</a>
+						<a href="Medical services/medicalservices.html">Medical Services</a>
+						<a href="Doctor referals/doctorreferrals.html">Doctor referrals</a>
+						<a href="Emergency service/emergencyservice.html">Emergency services</a>
+						<a href="Daily health track/dailyhealthtracking.html">Daily Health-Tracking</a>
+						<a href="chatbot.html">Healthcare/Medical tips</a>
+					</div>
+				</li>
+				<li><a href="#contact">Contact</a></li>
+				<li class="dropdown">
+					<a class="dropbtn">Login</a>
+					<div class="dropdown-content">
+						<a href="user-login.html">User</a>
+						<a href="Donar survay/donarsurvery.html">Donor</a>
+						<a href="Doctor login/doctorlogin.html">Doctor</a>
+					</div>
+				</li>
+			</ul>
+		</nav>
+	</header>
+	<!-- Login Modal Popup -->
+	<div id="loginModal" class="modal">
+		<div class="modal-content">
+			<span class="close" id="closeModal">&times;</span>
+			<h2 id="loginType">Login</h2>
+			<form class="login-form">
+				<label for="login-username">Email</label>
+				<input type="email" id="login-email" name="login-email" required style="width:100%;padding:10px;margin-bottom:12px;border-radius:7px;border:1.2px solid #cfd8dc;font-size:1rem;font-family:inherit;background:#f5f7fa;box-sizing:border-box;">
+				<button type="button" class="cta" id="sendOtpBtn" style="margin-bottom:16px;">Send OTP</button>
+				<input type="text" id="login-otp" name="login-otp" placeholder="Enter OTP" required style="width:100%;padding:10px;margin-bottom:12px;border-radius:7px;border:1.2px solid #cfd8dc;font-size:1rem;font-family:inherit;background:#f5f7fa;box-sizing:border-box;">
+				<button type="button" class="cta" id="verifyOtpBtn">Verify OTP</button>
+				<div id="otpMessage" style="margin:10px 0 0 0;color:#1976d2;font-weight:500;"></div>
+			</form>
+		</div>
+	</div>
+
+	<!-- Contact Us Modal Popup -->
+	<div id="contactModal" class="modal">
+		<div class="modal-content">
+			<span class="close" id="closeContactModal">&times;</span>
+			<h2>Contact Us</h2>
+			<form class="contact-form">
+				<label for="contact-name">Name</label>
+				<input type="text" id="contact-name" name="contact-name" required>
+				<label for="contact-email">Email</label>
+				<input type="email" id="contact-email" name="contact-email" required>
+				<label for="contact-message">Feedback / Message</label>
+				<textarea id="contact-message" name="contact-message" rows="4" required></textarea>
+				<button type="submit" class="cta">Send</button>
+				<div id="contactMessage" style="margin:10px 0 0 0;color:#1976d2;font-weight:500;"></div>
+			</form>
+		</div>
+	</div>
+	<section class="hero" id="home">
+		<h1>Welcome to Medisphere</h1>
+		<p>Innovating healthcare for a better tomorrow. Join us in our hackathon journey to revolutionize medical solutions with technology.</p>
+		<button class="cta" onclick="window.location='#about'">Learn More</button>
+	</section>
+	<!-- About Section -->
+	<section id="about" style="background:#f1f7fd;padding:80px 0 60px 0;">
+		<div class="container">
+			<div class="section-title" style="text-align:center;margin-bottom:50px;">
+				<h2 style="font-size:2.2rem;color:#1976d2;margin-bottom:15px;letter-spacing:1px;">About Medisphere</h2>
+				<p style="color:#222;max-width:700px;margin:0 auto;font-size:1.1rem;">Medisphere is a healthcare innovation platform dedicated to connecting organ donors, recipients, and medical professionals. Our mission is to revolutionize the organ donation process through technology, compassion, and community engagement. Join us in making a difference and saving lives.</p>
+			</div>
+			<div style="display:flex;flex-wrap:wrap;justify-content:center;gap:40px;">
+				<div style="flex:1;min-width:260px;background:#fff;border-radius:14px;padding:32px 24px;box-shadow:0 4px 16px rgba(25,118,210,0.07);text-align:center;">
+					<i class="fas fa-heartbeat" style="font-size:40px;color:#1976d2;margin-bottom:18px;"></i>
+					<h3 style="color:#222;margin-bottom:10px;">Our Mission</h3>
+					<p>To save lives by making organ donation accessible, transparent, and efficient for everyone.</p>
+				</div>
+				<div style="flex:1;min-width:260px;background:#fff;border-radius:14px;padding:32px 24px;box-shadow:0 4px 16px rgba(25,118,210,0.07);text-align:center;">
+					<i class="fas fa-users" style="font-size:40px;color:#1976d2;margin-bottom:18px;"></i>
+					<h3 style="color:#222;margin-bottom:10px;">Our Community</h3>
+					<p>We bring together donors, recipients, doctors, and volunteers to create a supportive healthcare network.</p>
+				</div>
+				<div style="flex:1;min-width:260px;background:#fff;border-radius:14px;padding:32px 24px;box-shadow:0 4px 16px rgba(25,118,210,0.07);text-align:center;">
+					<i class="fas fa-laptop-medical" style="font-size:40px;color:#1976d2;margin-bottom:18px;"></i>
+					<h3 style="color:#222;margin-bottom:10px;">Our Technology</h3>
+					<p>We leverage modern technology to streamline matching, communication, and medical record management.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Services Section -->
+	<section class="services" style="background:#fff;padding:80px 0 60px 0;">
+		<div class="container">
+			<div class="section-title" style="text-align:center;margin-bottom:50px;">
+				<h2 style="font-size:2.2rem;color:#1976d2;margin-bottom:15px;letter-spacing:1px;">Our Services</h2>
+				<p style="color:#222;max-width:700px;margin:0 auto;font-size:1.1rem;">We provide comprehensive solutions for all parties involved in the organ donation process.</p>
+			</div>
+			<div class="services-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:40px;">
+				<div class="service-card" style="background:#f5f7fa;border-radius:14px;padding:36px 28px;text-align:center;box-shadow:0 8px 24px rgba(25,118,210,0.08);transition:transform 0.3s;">
+					<span style="font-size:44px;color:#1976d2;margin-bottom:18px;display:block;"><i class="fas fa-user-friends"></i></span>
+					<h3 style="margin-bottom:13px;color:#222;font-size:1.25rem;">For Donors</h3>
+					<p style="font-size:1rem;">Register as an organ donor, learn about the process, and make a life-saving commitment.</p>
+				</div>
+				<div class="service-card" style="background:#f5f7fa;border-radius:14px;padding:36px 28px;text-align:center;box-shadow:0 8px 24px rgba(25,118,210,0.08);transition:transform 0.3s;">
+					<span style="font-size:44px;color:#1976d2;margin-bottom:18px;display:block;"><i class="fas fa-hand-holding-heart"></i></span>
+					<h3 style="margin-bottom:13px;color:#222;font-size:1.25rem;">For Recipients</h3>
+					<p style="font-size:1rem;">Find compatible donors, manage your waiting list status, and get support throughout your journey.</p>
+				</div>
+				<div class="service-card" style="background:#f5f7fa;border-radius:14px;padding:36px 28px;text-align:center;box-shadow:0 8px 24px rgba(25,118,210,0.08);transition:transform 0.3s;">
+					<span style="font-size:44px;color:#1976d2;margin-bottom:18px;display:block;"><i class="fas fa-user-md"></i></span>
+					<h3 style="margin-bottom:13px;color:#222;font-size:1.25rem;">For Doctors</h3>
+					<p style="font-size:1rem;">Access our database, manage patient records, and coordinate transplants efficiently.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- How It Works Section -->
+	<section class="how-it-works" style="background:#f1f7fd;padding:80px 0 60px 0;">
+		<div class="container">
+			<div class="section-title" style="text-align:center;margin-bottom:50px;">
+				<h2 style="font-size:2rem;color:#1976d2;margin-bottom:15px;">How It Works</h2>
+				<p style="color:#222;max-width:700px;margin:0 auto;">Our simple process makes organ donation accessible to everyone</p>
+			</div>
+			<div class="steps" style="display:flex;justify-content:space-between;flex-wrap:wrap;margin-top:50px;">
+				<div class="step" style="flex:1;min-width:250px;text-align:center;padding:20px;position:relative;">
+					<div class="step-number" style="width:50px;height:50px;background:#1976d2;color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:bold;margin:0 auto 20px;">1</div>
+					<h3 style="margin-bottom:15px;color:#222;">Register</h3>
+					<p>Create an account as a donor, recipient, or healthcare professional.</p>
+				</div>
+				<div class="step" style="flex:1;min-width:250px;text-align:center;padding:20px;position:relative;">
+					<div class="step-number" style="width:50px;height:50px;background:#1976d2;color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:bold;margin:0 auto 20px;">2</div>
+					<h3 style="margin-bottom:15px;color:#222;">Get Matched</h3>
+					<p>Our algorithm finds compatible matches based on medical criteria.</p>
+				</div>
+				<div class="step" style="flex:1;min-width:250px;text-align:center;padding:20px;position:relative;">
+					<div class="step-number" style="width:50px;height:50px;background:#1976d2;color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:bold;margin:0 auto 20px;">3</div>
+					<h3 style="margin-bottom:15px;color:#222;">Connect</h3>
+					<p>Communicate through our secure platform with medical oversight.</p>
+				</div>
+				<div class="step" style="flex:1;min-width:250px;text-align:center;padding:20px;position:relative;">
+					<div class="step-number" style="width:50px;height:50px;background:#1976d2;color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:bold;margin:0 auto 20px;">4</div>
+					<h3 style="margin-bottom:15px;color:#222;">Procedure</h3>
+					<p>Coordinate the transplant process with healthcare professionals.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Stats Section -->
+	<section class="stats" style="padding:60px 0 50px 0;background:#1976d2;color:white;text-align:center;">
+		<div class="container">
+			<div class="stats-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;">
+				<div class="stat-item"><h3 style="font-size:2.5rem;margin-bottom:10px;">5,000+</h3><p>Registered Donors</p></div>
+				<div class="stat-item"><h3 style="font-size:2.5rem;margin-bottom:10px;">2,500+</h3><p>Successful Transplants</p></div>
+				<div class="stat-item"><h3 style="font-size:2.5rem;margin-bottom:10px;">800+</h3><p>Healthcare Partners</p></div>
+				<div class="stat-item"><h3 style="font-size:2.5rem;margin-bottom:10px;">24/7</h3><p>Support Available</p></div>
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA Section -->
+	<section class="cta" style="background:#fff;padding:80px 0 60px 0;text-align:center;">
+		<div class="container">
+			<h2 style="font-size:2.2rem;margin-bottom:20px;color:#1976d2;">Ready to Make a Difference?</h2>
+			<p style="max-width:700px;margin:0 auto 30px;font-size:1.1rem;color:#222;">Join thousands of others who have saved lives through organ donation. Register today and become part of our life-saving community.</p>
+			<a href="#" class="cta" style="background:#ffb300;color:#222;border:2px solid #ffb300;padding:12px 28px;border-radius:6px;font-weight:600;font-size:1.1rem;box-shadow:0 2px 8px rgba(0,0,0,0.08);">Register Now</a>
+		</div>
+	</section>
+
+	<!-- Footer -->
+	<footer style="background:#222;color:white;padding:60px 0 30px;">
+<script>
+// Login Modal Logic
+const loginModal = document.getElementById('loginModal');
+const closeModal = document.getElementById('closeModal');
+const loginType = document.getElementById('loginType');
+// Only target Login dropdown links
+document.querySelectorAll('.dropdown .dropbtn').forEach(btn => {
+	if (btn.textContent.trim() === 'Login') {
+		const loginDropdown = btn.parentElement.querySelector('.dropdown-content');
+		if (loginDropdown) {
+			loginDropdown.querySelectorAll('a').forEach(link => {
+				link.addEventListener('click', function(e) {
+					if (this.textContent.trim() === 'Donor') {
+						window.location.href = 'Donar survay/donarsurvery.html';
+						return;
+					}
+					if (this.textContent.trim() === 'Doctor') {
+						window.location.href = 'Doctor login/doctorlogin.html';
+						return;
+					}
+					// For User, open modal
+					e.preventDefault();
+					loginType.textContent = this.textContent + ' Login';
+					loginModal.style.display = 'block';
+					document.body.style.overflow = 'hidden';
+					document.getElementById('login-email').focus();
+				});
+			});
+		}
+	}
+});
+// Close modal logic
+closeModal.onclick = function() {
+	loginModal.style.display = 'none';
+	document.body.style.overflow = '';
+};
+window.onclick = function(event) {
+	if (event.target == loginModal) {
+		loginModal.style.display = 'none';
+		document.body.style.overflow = '';
+	}
+};
+document.addEventListener('keydown', function(e) {
+	if (e.key === 'Escape' && loginModal.style.display === 'block') {
+		loginModal.style.display = 'none';
+		document.body.style.overflow = '';
+	}
+});
+</script>
+		<div class="container">
+			<div class="footer-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;margin-bottom:40px;">
+				<div class="footer-column">
+					<h3>Medisphere</h3>
+					<p>Connecting organ donors with those in need through technology and compassion.</p>
+					<div class="social-links" style="display:flex;gap:15px;margin-top:20px;">
+						<a href="#"><i class="fab fa-facebook-f"></i></a>
+						<a href="#"><i class="fab fa-instagram"></i></a>
+						<a href="#"><i class="fab fa-twitter"></i></a>
+						<a href="#"><i class="fab fa-linkedin-in"></i></a>
+					</div>
+				</div>
+				<div class="footer-column">
+					<h3>Quick Links</h3>
+					<ul style="list-style:none;">
+						<li><a href="#" style="color:#cbd5e0;text-decoration:none;">Home</a></li>
+						<li><a href="#" style="color:#cbd5e0;text-decoration:none;">How It Works</a></li>
+						<li><a href="#" style="color:#cbd5e0;text-decoration:none;">For Donors</a></li>
+						<li><a href="#" style="color:#cbd5e0;text-decoration:none;">For Recipients</a></li>
+						<li><a href="#" style="color:#cbd5e0;text-decoration:none;">For Doctors</a></li>
+					</ul>
+				</div>
+				<div class="footer-column">
+					<h3>Resources</h3>
+					<ul style="list-style:none;">
+						<li><a href="#" style="color:#cbd5e0;text-decoration:none;">FAQ</a></li>
+						<li><a href="#" style="color:#cbd5e0;text-decoration:none;">Blog</a></li>
+						<li><a href="#" style="color:#cbd5e0;text-decoration:none;">Success Stories</a></li>
+						<li><a href="#" style="color:#cbd5e0;text-decoration:none;">Medical Guidelines</a></li>
+					</ul>
+				</div>
+				<div class="footer-column">
+					<h3>Contact Us</h3>
+					<ul style="list-style:none;">
+						<li><i class="fas fa-phone"></i> +1 (800) 123-4567</li>
+						<li><i class="fas fa-envelope"></i> info@medisphere.org</li>
+						<li><i class="fas fa-map-marker-alt"></i> 123 Medical Plaza, Health City</li>
+					</ul>
+				</div>
+			</div>
+			<div class="copyright" style="text-align:center;padding-top:30px;border-top:1px solid #4a5568;color:#cbd5e0;">
+				<p>&copy; 2025 Medisphere Hackathon Team. All rights reserved.</p>
+			</div>
+		</div>
+	</footer>
+<script>
+// Contact Modal Logic
+const contactModal = document.getElementById('contactModal');
+const closeContactModal = document.getElementById('closeContactModal');
+const contactMessage = document.getElementById('contactMessage');
+// Open modal when Contact link is clicked
+document.querySelectorAll('a[href="#contact"]').forEach(link => {
+	link.addEventListener('click', function(e) {
+		e.preventDefault();
+		contactModal.style.display = 'block';
+		document.body.style.overflow = 'hidden';
+		document.getElementById('contact-name').focus();
+	});
+});
+// Close modal when close button is clicked
+closeContactModal.onclick = function() {
+	contactModal.style.display = 'none';
+	document.body.style.overflow = '';
+};
+// Close modal when clicking outside modal
+window.onclick = function(event) {
+	if (event.target == contactModal) {
+		contactModal.style.display = 'none';
+		document.body.style.overflow = '';
+	}
+};
+// Close modal with Escape key
+document.addEventListener('keydown', function(e) {
+	if (e.key === 'Escape' && contactModal.style.display === 'block') {
+		contactModal.style.display = 'none';
+		document.body.style.overflow = '';
+	}
+});
+// Contact form handler (frontend only)
+document.querySelector('.contact-form').onsubmit = function(e) {
+	e.preventDefault();
+	contactMessage.textContent = 'Thank you for your feedback!';
+	setTimeout(() => {
+		contactModal.style.display = 'none';
+		document.body.style.overflow = '';
+		contactMessage.textContent = '';
+		this.reset();
+	}, 1800);
+};
+</script>
+</body>
+</html>
