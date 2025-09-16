@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Medisphere — Donor Listing</title>
+  <link rel="stylesheet" href="Donorlisting.css">
+  <link rel="js" href="Donorlisting.js">
+  <link rel="icon" type="image/ico" href="logo.png">
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">M</div>
+        <div>
+          <h1>Medisphere — Donor Listings</h1>
+          <div class="muted">Browse donors by blood type, filter, and contact</div>
+        </div>
+      </div>
+      <div class="controls">
+        <input id="search" class="search" placeholder="Search by name, city, or condition..." oninput="render()" />
+        <select id="sort" onchange="render()">
+          <option value="relevance">Sort: Relevance</option>
+          <option value="ageAsc">Age: Low → High</option>
+          <option value="ageDesc">Age: High → Low</option>
+        </select>
+        <button onclick="toggleView()" id="viewToggle">Toggle View</button>
+      </div>
+    </header>
+
+    <div class="layout" id="layout">
+      <aside class="sidebar">
+        <div class="filter-group">
+          <h4>Filter by Blood Type</h4>
+          <div class="blood-list" id="bloodFilters">
+            <!-- populated by JS -->
+          </div>
+        </div>
+        <div class="filter-group">
+          <h4>Quick Filters</h4>
+          <label style="display:flex;gap:8px;align-items:center"><input type="checkbox" id="availableNow" onchange="render()"/> Available Now</label>
+          <label style="display:flex;gap:8px;align-items:center;margin-top:8px"><input type="checkbox" id="livingDonor" onchange="render()"/> Living Donor</label>
+        </div>
+        <div class="filter-group">
+          <h4>Export</h4>
+          <button class="btn" onclick="exportCSV()">Export CSV</button>
+        </div>
+      </aside>
+
+      <main>
+        <div class="results">
+          <div class="summary">
+            <div id="count" class="muted">0 donors found</div>
+            <div class="muted">Sample listing — no real personal data included</div>
+          </div>
+
+          <div id="listWrap" class="grid"></div>
+          <div id="empty" class="empty" style="display:none">No donors match your filters.</div>
+        </div>
+      </main>
+    </div>
+  </div>
+  <script src="Donorlisting.js"></script>
+</body>
+</html>
