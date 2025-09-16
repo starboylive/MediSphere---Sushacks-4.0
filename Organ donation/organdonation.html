@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Medisphere — Organ Donor Listings</title>
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="stylesheet" href="organdonation.css">
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">M</div>
+        <div>
+          <h1>Medisphere — Organ Donors</h1>
+          <div class="muted">Browse organ donors, filter, and request</div>
+        </div>
+      </div>
+      <div class="controls">
+        <input id="search" class="search" placeholder="Search by name, city, or organ..." oninput="render()" />
+        <select id="sort" onchange="render()">
+          <option value="relevance">Sort: Relevance</option>
+          <option value="ageAsc">Age: Low → High</option>
+          <option value="ageDesc">Age: High → Low</option>
+        </select>
+      </div>
+    </header>
+
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="filter-group">
+          <h4>Filter by Blood Type</h4>
+          <label><input type="checkbox" value="A+" onchange="render()"> A+</label>
+          <label><input type="checkbox" value="A-" onchange="render()"> A-</label>
+          <label><input type="checkbox" value="B+" onchange="render()"> B+</label>
+          <label><input type="checkbox" value="B-" onchange="render()"> B-</label>
+          <label><input type="checkbox" value="AB+" onchange="render()"> AB+</label>
+          <label><input type="checkbox" value="AB-" onchange="render()"> AB-</label>
+          <label><input type="checkbox" value="O+" onchange="render()"> O+</label>
+          <label><input type="checkbox" value="O-" onchange="render()"> O-</label>
+        </div>
+        <div class="filter-group">
+          <h4>Donor Type</h4>
+          <label><input type="checkbox" value="Living" onchange="render()"> Living</label>
+          <label><input type="checkbox" value="Deceased" onchange="render()"> After Death</label>
+        </div>
+        <div class="filter-group">
+          <h4>Availability</h4>
+          <label><input type="checkbox" id="available" onchange="render()"> Available Now</label>
+        </div>
+      </aside>
+
+      <main>
+        <div class="results">
+          <div class="summary">
+            <div id="count" class="muted">0 donors found</div>
+            <div class="muted">Sample demo listing</div>
+          </div>
+          <div id="listWrap" class="grid"></div>
+          <div id="empty" class="empty" style="display:none">No donors found.</div>
+        </div>
+      </main>
+    </div>
+  </div>
+  <script src="organdonation.js"></script>
+</body>
+</html>
